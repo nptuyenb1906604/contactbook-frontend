@@ -22,10 +22,7 @@
                 <button class="btn btn-sm btn-success" @click="goToAddContact">
                     <i class="fas fa-plus"></i> Thêm mới
                 </button>
-                <button
-                    class="btn btn-sm btn-danger"
-                    @click="removeAllContacts"
-                >
+                <button class="btn btn-sm btn-danger" @click="removeAllContacts">
                     <i class="fas fa-trash"></i> Xóa tất cả
                 </button>
             </div>
@@ -63,7 +60,7 @@ export default {
         InputSearch,
         ContactList,
     },
-// Đoạn mã xử lý đầy đủ sẽ trình bày bên dưới
+    // Đoạn mã xử lý đầy đủ sẽ trình bày bên dưới
     data() {
         return {
             contacts: [],
@@ -81,7 +78,7 @@ export default {
     computed: {
         // Chuyển các đối tượng contact thành chuỗi để tiện cho tìm kiếm.
         contactStrings() {
-                return this.contacts.map((contact) => {
+            return this.contacts.map((contact) => {
                 const { name, email, address, phone } = contact;
                 return [name, email, address, phone].join("");
             });
@@ -89,7 +86,7 @@ export default {
         // Trả về các contact có chứa thông tin cần tìm kiếm.
         filteredContacts() {
             if (!this.searchText) return this.contacts;
-                return this.contacts.filter((contact, index) =>
+            return this.contacts.filter((contact, index) =>
                 this.contactStrings[index].includes(this.searchText)
             );
         },
